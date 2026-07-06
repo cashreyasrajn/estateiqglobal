@@ -96,7 +96,7 @@ export default function AboutPage() {
             </FadeIn>
             <FadeIn delay={0.2}>
               <p className="font-sans text-body-lg text-on-surface-variant">
-                We combine deep knowledge of US federal estate tax with Indian regulatory
+                EstateIQ Global combines deep knowledge of US federal estate tax with Indian regulatory
                 frameworks to help families preserve capital, optimize cross-border transfers, and
                 build lasting legacies. Every plan we create is tailored, documented, and designed
                 to evolve with your family and the jurisdictions in which you operate.

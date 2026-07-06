@@ -41,7 +41,7 @@ export default function ContactPage() {
             <FadeIn className="lg:col-span-1" delay={0.15}>
               <div className="border border-outline-variant bg-surface-container-low p-stack-lg">
                 <h2 className="font-serif text-headline-md text-on-surface">
-                  Our Offices
+                  Our Office
                 </h2>
 
                 <div className="mt-8 space-y-6">
@@ -49,34 +49,7 @@ export default function ContactPage() {
                     <MapPin className="mt-1 size-5 shrink-0 stroke-1 text-primary" />
                     <div>
                       <p className="font-sans text-label-lg text-on-surface">
-                        Mumbai, India
-                      </p>
-                      <p className="mt-1 font-sans text-body-sm text-on-surface-variant">
-                        Address TBD — placeholder
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-4">
-                    <MapPin className="mt-1 size-5 shrink-0 stroke-1 text-primary" />
-                    <div>
-                      <p className="font-sans text-label-lg text-on-surface">
-                        Dubai, UAE
-                      </p>
-                      <p className="mt-1 font-sans text-body-sm text-on-surface-variant">
-                        Address TBD — placeholder
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-4">
-                    <MapPin className="mt-1 size-5 shrink-0 stroke-1 text-primary" />
-                    <div>
-                      <p className="font-sans text-label-lg text-on-surface">
-                        Singapore
-                      </p>
-                      <p className="mt-1 font-sans text-body-sm text-on-surface-variant">
-                        Address TBD — placeholder
+                        Bangalore, India
                       </p>
                     </div>
                   </div>
@@ -88,10 +61,12 @@ export default function ContactPage() {
                         <p className="font-sans text-label-lg text-on-surface">
                           Email
                         </p>
-                        {/* TODO: Update email when user provides real details. */}
-                        <p className="mt-1 font-sans text-body-sm text-on-surface-variant">
-                          hello@estateiqglobal.com
-                        </p>
+                        <a
+                          href="mailto:Business@florensservices.com"
+                          className="mt-1 block font-sans text-body-sm text-on-surface-variant hover:text-primary"
+                        >
+                          Business@florensservices.com
+                        </a>
                       </div>
                     </div>
                   </div>
@@ -104,3 +79,4 @@ export default function ContactPage() {
     </>
   );
 }
+

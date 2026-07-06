@@ -1,71 +1,79 @@
 import Link from "next/link";
 import Image from "next/image";
 import {
-  Building2,
-  ShieldCheck,
-  Globe,
   ArrowRight,
+  ChevronDown,
+  Building2,
+  Globe,
+  Scale,
+  Briefcase,
+  Users,
+  ShieldCheck,
+  Mail,
+  MapPin,
+  Phone,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { FadeIn, StaggerContainer, StaggerItem } from "@/components/motion/fade-in";
+import {
+  FadeIn,
+  StaggerContainer,
+  StaggerItem,
+} from "@/components/motion/fade-in";
 
-const services = [
+const valueBadges = [
+  { label: "Partner-Led", sub: "Every Engagement" },
+  { label: "US + India", sub: "Cross-Border Focus" },
+  { label: "Tax + Legal", sub: "Integrated Advice" },
+  { label: "End-to-End", sub: "Full Lifecycle" },
+];
+
+const strengths = [
   {
-    title: "Estate Tax Planning",
-    description:
-      "Strategic structural optimization for Indian residents holding overseas assets. We minimize US federal estate tax exposure while ensuring maximum fiscal efficiency through architectural tax design aligned with your long-term objectives.",
     icon: Building2,
-    tags: ["DTAA Strategy", "Trust Structures", "Nexus Audits"],
-    variant: "light",
-    wide: true,
+    title: "Institutional Pedigree",
+    description:
+      "Our team has advised on estate structures at leading accounting firms and understands the discipline of institutional practice.",
   },
   {
-    title: "Compliance & Filing",
-    description:
-      "In an era of shifting regulations, we provide the bedrock of certainty. Our compliance team ensures every filing is a testament to precision and legal integrity.",
-    icon: ShieldCheck,
-    variant: "dark",
-    wide: false,
-  },
-  {
-    title: "International Strategy",
-    description:
-      "Navigating cross-border complexities with global insight. We specialize in treaty interpretation, transfer pricing, and FEMA compliance for international growth.",
     icon: Globe,
-    variant: "light",
-    wide: false,
+    title: "Cross-Border Depth",
+    description:
+      "Deep expertise in US federal estate tax, DTAA relief, foreign asset reporting, and cross-border holding structures for Indian families.",
   },
   {
-    title: "Wealth Management",
+    icon: Users,
+    title: "Partner-Led Advisory",
     description:
-      "Private counsel for high-net-worth individuals focusing on multi-generational legacy preservation and tax-advantaged investment structures.",
-    icon: Building2,
-    tags: ["Estate Trusts", "Philanthropy"],
-    variant: "image",
-    wide: true,
+      "Every engagement is led by a partner. Direct access, clear accountability, and faster decisions on complex estate matters.",
+  },
+  {
+    icon: Scale,
+    title: "End-to-End Execution",
+    description:
+      "From discovery and architecture to filing and ongoing oversight — we manage the full lifecycle of your estate plan.",
   },
 ];
 
-const methodology = [
+const credentials = ["US Estate Tax", "India Tax", "Trust Structures", "FEMA Compliance"];
+
+const services = [
   {
     number: "01",
-    title: "DISCOVERY",
-    description: "Deep analysis of current structures and future objectives.",
+    title: "Estate Tax Planning",
+    description:
+      "Mitigate US federal estate tax exposure on overseas holdings through treaty-aware structures, trusts, and gifting strategies.",
   },
   {
     number: "02",
-    title: "ARCHITECTURE",
-    description: "Designing the most tax-efficient path forward.",
+    title: "Cross-Border Compliance",
+    description:
+      "Align reporting across FEMA, FATCA, and IRS disclosure requirements so every filing is precise and defensible.",
   },
   {
     number: "03",
-    title: "EXECUTION",
-    description: "Precision implementation of legal and financial strategies.",
-  },
-  {
-    number: "04",
-    title: "OVERSIGHT",
-    description: "Continuous monitoring and compliance verification.",
+    title: "Succession & Wealth",
+    description:
+      "Multi-generational succession planning, family governance, and tax-advantaged structures that preserve capital across borders.",
   },
 ];
 
@@ -73,145 +81,105 @@ export default function HomePage() {
   return (
     <>
       {/* ── Hero ── */}
-      <section className="section-padding">
+      <section className="relative flex min-h-[85vh] flex-col justify-center section-padding">
         <div className="container-site">
-          <div className="grid-12 items-center">
-            <FadeIn className="col-span-12 md:col-span-7" direction="left">
-              <h1 className="font-serif text-display-lg text-on-surface">
-                Precision in Every Provision.
-              </h1>
-              <p className="mt-6 max-w-xl font-sans text-body-xl text-secondary">
-                Our specialized cross-border estate tax strategies are designed for high-net-worth
-                Indian residents and corporate entities who demand absolute clarity and rigorous
-                integrity in their financial planning.
-              </p>
-            </FadeIn>
-            <FadeIn
-              className="col-span-12 md:col-span-5"
-              direction="right"
-              delay={0.15}
-            >
-              <div className="group relative aspect-square overflow-hidden border border-outline-variant bg-surface-container">
-                <Image
-                  src="/images/hero.jpg"
-                  alt="Modern high-rise office building with clean horizontal lines and reflective glass"
-                  fill
-                  priority
-                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                  sizes="(max-width: 768px) 100vw, 40vw"
-                />
-              </div>
-            </FadeIn>
-          </div>
+          <FadeIn>
+            <h1 className="max-w-4xl font-serif text-display-lg text-on-surface md:text-[5rem]">
+              Estate. <span className="italic">Tax.</span> Structure.
+            </h1>
+          </FadeIn>
+
+          <FadeIn delay={0.1}>
+            <p className="mt-6 max-w-2xl font-sans text-body-xl text-secondary">
+              Precision estate planning for Indian residents with overseas assets. We navigate US
+              federal estate tax, DTAA optimization, and multi-generational succession with
+              institutional discipline.
+            </p>
+          </FadeIn>
+
+          <FadeIn delay={0.2}>
+            <div className="mt-8">
+              <Button asChild size="lg">
+                <Link href="/contact">CONSULTATION</Link>
+              </Button>
+            </div>
+          </FadeIn>
+        </div>
+
+        <div className="absolute bottom-8 left-0 right-0 flex flex-col items-center gap-1 font-sans text-caption uppercase tracking-widest text-secondary">
+          <span>Scroll</span>
+          <ChevronDown className="size-4 animate-bounce" />
         </div>
       </section>
 
-      {/* ── Services Bento ── */}
+      {/* ── Value Badges ── */}
+      <section className="border-y border-outline-variant bg-surface-container-low py-stack-md">
+        <div className="container-site">
+          <StaggerContainer
+            className="grid grid-cols-2 gap-px bg-outline-variant md:grid-cols-4"
+            staggerDelay={0.05}
+          >
+            {valueBadges.map((badge) => (
+              <StaggerItem key={badge.label}>
+                <div className="flex h-full flex-col items-center justify-center bg-surface-container-low p-6 text-center">
+                  <span className="font-sans text-label-lg text-primary">{badge.label}</span>
+                  <span className="mt-1 font-sans text-caption text-on-surface-variant">
+                    {badge.sub}
+                  </span>
+                </div>
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
+        </div>
+      </section>
+
+      {/* ── Mission Quote ── */}
+      <section className="section-padding">
+        <div className="container-site">
+          <FadeIn className="mx-auto max-w-3xl text-center">
+            <p className="font-serif text-headline-lg text-on-surface">
+              We advise on the estate and succession decisions that shape long-term family wealth.
+            </p>
+            <p className="mt-4 font-sans text-body-lg text-secondary">
+              Every engagement is partner-led. Every recommendation is grounded in rigorous analysis,
+              regulatory clarity, and a clear understanding of the client&apos;s objectives.
+            </p>
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* ── Why EstateIQ ── */}
       <section className="section-padding bg-surface-container-low">
         <div className="container-site">
           <FadeIn>
             <div className="mb-stack-lg border-l-4 border-primary pl-stack-sm">
-              <span className="block font-sans text-label-lg text-primary">OUR EXPERTISE</span>
+              <span className="block font-sans text-label-lg text-primary">WHY ESTATEIQ</span>
               <h2 className="mt-2 font-serif text-headline-xl text-on-surface">
-                Specialized Offerings
+                Built for cross-border complexity.
               </h2>
             </div>
           </FadeIn>
 
           <StaggerContainer
-            className="grid grid-cols-1 gap-stack-md md:grid-cols-3"
+            className="grid grid-cols-1 gap-stack-md md:grid-cols-2"
             staggerDelay={0.1}
           >
-            {services.map((service) => {
-              const Icon = service.icon;
-              const isDark = service.variant === "dark";
-              const isImage = service.variant === "image";
-
+            {strengths.map((item) => {
+              const Icon = item.icon;
               return (
-                <StaggerItem
-                  key={service.title}
-                  className={service.wide ? "md:col-span-2" : ""}
-                >
-                  <div
-                    className={`group relative flex h-full min-h-[260px] flex-col justify-between p-stack-lg transition-colors duration-300 ${
-                      isImage
-                        ? "overflow-hidden text-on-primary"
-                        : isDark
-                          ? "bg-primary text-on-primary"
-                          : "border border-outline-variant bg-surface hover:bg-surface-container-highest"
-                    }`}
-                  >
-                    {/* Image background for wealth card */}
-                    {isImage && (
-                      <>
-                        <Image
-                          src="/images/wealth.jpg"
-                          alt="Intricate analog clock mechanism symbolizing wealth preservation"
-                          fill
-                          className="absolute inset-0 object-cover transition-transform duration-700 ease-out group-hover:scale-110"
-                          sizes="(max-width: 768px) 100vw, 66vw"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-                      </>
-                    )}
-
-                    <div className="relative z-10">
-                      <Icon
-                        className="mb-stack-md size-10"
-                        strokeWidth={1}
-                      />
-                      <h3
-                        className={`mb-4 font-serif ${
-                          service.wide && !isImage
-                            ? "text-headline-lg"
-                            : isImage
-                              ? "text-headline-lg"
-                              : "text-headline-md"
-                        }`}
-                      >
-                        {service.title}
+                <StaggerItem key={item.title}>
+                  <div className="flex h-full gap-6 border border-outline-variant bg-surface p-stack-lg">
+                    <div className="flex size-12 shrink-0 items-center justify-center border border-outline-variant bg-surface-container-low">
+                      <Icon className="size-6 stroke-1 text-primary" />
+                    </div>
+                    <div>
+                      <h3 className="font-serif text-headline-md text-on-surface">
+                        {item.title}
                       </h3>
-                      <p
-                        className={`font-sans text-body-lg ${
-                          isDark || isImage
-                            ? "text-on-primary-container"
-                            : "text-secondary"
-                        }`}
-                      >
-                        {service.description}
+                      <p className="mt-2 font-sans text-body-md text-secondary">
+                        {item.description}
                       </p>
                     </div>
-
-                    {service.tags && (
-                      <div
-                        className={`relative z-10 mt-stack-md flex flex-wrap gap-2 pt-stack-sm ${
-                          isImage ? "" : "border-t border-outline-variant"
-                        }`}
-                      >
-                        {service.tags.map((tag) => (
-                          <span
-                            key={tag}
-                            className={`font-sans text-label-md border px-3 py-1 ${
-                              isDark || isImage
-                                ? "border-surface-variant text-on-primary"
-                                : "border-outline text-on-surface-variant"
-                            }`}
-                          >
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
-                    )}
-
-                    {!service.tags && isDark && (
-                      <Link
-                        href="/services"
-                        className="relative z-10 mt-auto flex items-center gap-2 font-sans text-label-lg text-on-primary"
-                      >
-                        LEARN MORE{" "}
-                        <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
-                      </Link>
-                    )}
                   </div>
                 </StaggerItem>
               );
@@ -220,56 +188,129 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── Methodology ── */}
+      {/* ── About ── */}
       <section className="section-padding">
         <div className="container-site">
-          <FadeIn className="mb-stack-lg text-center">
-            <h2 className="mb-4 font-serif text-headline-xl text-on-surface">
-              The Methodology
-            </h2>
-            <div className="mx-auto h-[3px] w-24 bg-primary" />
+          <div className="grid gap-stack-lg lg:grid-cols-2 lg:items-center">
+            <FadeIn direction="left">
+              <div className="group relative aspect-[4/5] overflow-hidden border border-outline-variant bg-surface-container">
+                <Image
+                  src="/images/about.jpg"
+                  alt="Modern corporate office"
+                  fill
+                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+              </div>
+            </FadeIn>
+
+            <FadeIn direction="right" delay={0.15}>
+              <div className="border-l-4 border-primary pl-stack-sm">
+                <span className="block font-sans text-label-lg text-primary">WHO WE ARE</span>
+                <h2 className="mt-2 font-serif text-headline-xl text-on-surface">
+                  Precision Execution.
+                </h2>
+              </div>
+              <p className="mt-6 font-sans text-body-lg text-secondary">
+                EstateIQ Global is a brand of Florens Consulting Services Private Limited. We advise
+                Indian families and individuals with overseas assets on estate tax, succession, and
+                cross-border structuring.
+              </p>
+              <p className="mt-4 font-sans text-body-lg text-secondary">
+                Based in Bengaluru, we serve clients with interests across India and international
+                jurisdictions. Every plan is tailored, documented, and designed to evolve with your
+                family.
+              </p>
+
+              <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4">
+                {credentials.map((cred) => (
+                  <div
+                    key={cred}
+                    className="border border-outline-variant px-3 py-2 text-center font-sans text-label-md text-on-surface"
+                  >
+                    {cred}
+                  </div>
+                ))}
+              </div>
+            </FadeIn>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Services ── */}
+      <section className="section-padding bg-surface-container-low">
+        <div className="container-site">
+          <FadeIn>
+            <div className="mb-stack-lg border-l-4 border-primary pl-stack-sm">
+              <span className="block font-sans text-label-lg text-primary">WHAT WE DO</span>
+              <h2 className="mt-2 font-serif text-headline-xl text-on-surface">
+                Three verticals. One standard.
+              </h2>
+            </div>
           </FadeIn>
 
-          <StaggerContainer
-            className="grid grid-cols-1 gap-gutter md:grid-cols-4"
-            staggerDelay={0.1}
-          >
-            {methodology.map((step) => (
-              <StaggerItem key={step.number}>
-                <div className="text-center">
-                  <span className="mb-2 block font-serif text-display-lg font-semibold text-surface-container-highest">
-                    {step.number}
+          <StaggerContainer className="grid gap-px bg-outline-variant md:grid-cols-3" staggerDelay={0.1}>
+            {services.map((service) => (
+              <StaggerItem key={service.number}>
+                <Link
+                  href="/services"
+                  className="group flex h-full flex-col bg-surface p-stack-lg transition-colors duration-300 hover:bg-surface-container-highest"
+                >
+                  <span className="font-serif text-display-lg font-semibold text-surface-container-highest">
+                    {service.number}
                   </span>
-                  <h4 className="mb-2 font-sans text-label-lg text-on-surface">
-                    {step.title}
-                  </h4>
-                  <p className="font-sans text-body-md text-secondary">
-                    {step.description}
+                  <h3 className="mt-4 font-serif text-headline-md text-on-surface">
+                    {service.title}
+                  </h3>
+                  <p className="mt-3 font-sans text-body-md text-secondary">
+                    {service.description}
                   </p>
-                </div>
+                  <span className="mt-auto flex items-center gap-2 pt-stack-md font-sans text-label-lg text-primary">
+                    Learn More{" "}
+                    <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
+                  </span>
+                </Link>
               </StaggerItem>
             ))}
           </StaggerContainer>
         </div>
       </section>
 
-      {/* ── CTA ── */}
+      {/* ── Contact CTA ── */}
       <section className="section-padding bg-primary text-on-primary">
         <div className="container-site">
           <FadeIn>
-            <div className="flex flex-col items-center justify-between gap-stack-lg md:flex-row">
+            <div className="grid gap-stack-lg lg:grid-cols-2">
               <div>
-                <h2 className="mb-4 font-serif text-headline-xl">
-                  Ready for a Strategic Audit?
-                </h2>
-                <p className="max-w-xl font-sans text-body-lg text-on-primary-container">
-                  Schedule a confidential consultation with our lead tax architects to evaluate your
-                  current positioning and identify areas for structural improvement.
+                <h2 className="font-serif text-headline-xl">Start a Conversation</h2>
+                <p className="mt-4 max-w-xl font-sans text-body-lg text-on-primary-container">
+                  For confidential discussions on estate tax, succession, or cross-border
+                  structuring, write to us directly.
                 </p>
+                <a
+                  href="mailto:Business@florensservices.com"
+                  className="mt-6 inline-block font-serif text-headline-md underline underline-offset-4 transition-opacity hover:opacity-80"
+                >
+                  Business@florensservices.com
+                </a>
               </div>
-              <Button asChild variant="inverse" size="lg" className="whitespace-nowrap px-10 py-5">
-                <Link href="/contact">SECURE CONSULTATION</Link>
-              </Button>
+
+              <div className="grid gap-stack-md sm:grid-cols-2">
+                <div>
+                  <h4 className="mb-2 font-sans text-label-lg text-on-primary">PHONE</h4>
+                  <p className="font-sans text-body-md text-on-primary-container">
+                    +91 — Available on request
+                  </p>
+                </div>
+                <div>
+                  <h4 className="mb-2 font-sans text-label-lg text-on-primary">ADDRESS</h4>
+                  <address className="not-italic font-sans text-body-md text-on-primary-container">
+                    Bengaluru, Karnataka
+                    <br />
+                    India
+                  </address>
+                </div>
+              </div>
             </div>
           </FadeIn>
         </div>

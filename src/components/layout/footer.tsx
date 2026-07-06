@@ -1,8 +1,7 @@
-// TODO: User will provide real details for offices, legal links, and newsletter handling.
+// TODO: Update legal links and newsletter backend when ready.
 
 import * as React from "react";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
 import { NewsletterForm } from "./newsletter-form";
 
 export function Footer() {
@@ -15,8 +14,11 @@ export function Footer() {
             EstateIQ Global
           </div>
           <p className="font-sans text-caption text-on-surface-variant">
-            Architectural cross-border estate tax planning for the modern global Indian family and
-            private wealth sectors.
+            Cross-border estate tax planning and strategic advisory for global Indian families and
+            private wealth.
+          </p>
+          <p className="mt-3 font-sans text-caption text-on-surface-variant">
+            A brand of Florens Consulting Services Private Limited.
           </p>
         </div>
 
@@ -24,9 +26,7 @@ export function Footer() {
         <div>
           <h5 className="mb-4 font-sans text-label-lg text-primary">OFFICES</h5>
           <address className="not-italic font-sans text-caption text-on-surface-variant">
-            <p>TBD — Mumbai, India</p>
-            <p>TBD — Dubai, UAE</p>
-            <p>TBD — Singapore</p>
+            <p>Bangalore, India</p>
           </address>
         </div>
 
@@ -35,19 +35,19 @@ export function Footer() {
           <h5 className="mb-4 font-sans text-label-lg text-primary">LEGAL</h5>
           <div className="flex flex-col gap-2">
             <Link
-              href="#"
+              href="/privacy-policy"
               className="font-sans text-caption text-on-surface-variant transition-colors hover:text-primary"
             >
               Privacy Policy
             </Link>
             <Link
-              href="#"
+              href="/terms-of-service"
               className="font-sans text-caption text-on-surface-variant transition-colors hover:text-primary"
             >
               Terms of Service
             </Link>
             <Link
-              href="#"
+              href="/disclaimer"
               className="font-sans text-caption text-on-surface-variant transition-colors hover:text-primary"
             >
               Disclaimer
@@ -59,9 +59,24 @@ export function Footer() {
         <div>
           <h5 className="mb-4 font-sans text-label-lg text-primary">NEWSLETTER</h5>
           <NewsletterForm />
-          {/* TODO: Update year when user provides real details. */}
           <p className="mt-stack-md font-sans text-caption text-on-surface-variant">
-            &copy; 2024 EstateIQ Global. All rights reserved.
+            &copy; 2024 Florens Consulting Services Private Limited. All rights reserved.
+          </p>
+        </div>
+      </div>
+
+      {/* Disclaimer */}
+      <div className="border-t border-outline-variant">
+        <div className="container-site py-stack-md">
+          <p className="font-sans text-caption leading-relaxed text-on-surface-variant">
+            Florens Consulting Services Private Limited is a corporate advisory firm registered in
+            India. EstateIQ Global is a brand of Florens Consulting Services Private Limited. We are
+            not registered with SEBI as a merchant banker, investment adviser, research analyst, or
+            stock broker. Our engagements are advisory in nature and are governed by formal
+            engagement letters. Information on this website is general in nature and does not
+            constitute tax, legal, accounting, or investment advice. Readers should obtain advice
+            tailored to their specific circumstances before acting. Past performance is not
+            indicative of future results.
           </p>
         </div>
       </div>

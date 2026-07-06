@@ -90,8 +90,15 @@ export function ContactForm() {
         )}
       </Button>
 
+      {state && !state.ok && state.errors?.root && (
+        <p className="flex items-start gap-2 font-sans text-body-md font-medium text-on-surface">
+          <AlertCircle className="mt-1 size-4 shrink-0" />
+          {state.errors.root[0]}
+        </p>
+      )}
+
       {state && state.ok && (
-        <p className="flex items-start gap-2 text-body-md font-medium text-on-surface">
+        <p className="flex items-start gap-2 font-sans text-body-md font-medium text-on-surface">
           <Check className="mt-1 size-4 shrink-0" />
           {state.message}
         </p>

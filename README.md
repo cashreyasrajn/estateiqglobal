@@ -1,6 +1,6 @@
 # EstateIQ Global
 
-A responsive, multi-page marketing website for EstateIQ Global — a tax planning firm specializing in cross-border estate planning for Indian residents with overseas assets.
+A responsive, multi-page marketing website for EstateIQ Global — a brand of Florens Consulting Services Private Limited — specializing in cross-border estate planning for Indian residents with overseas assets.
 
 ## Stack
 
@@ -37,9 +37,9 @@ npm run build
 
 ## Notes
 
-- The contact form currently logs submissions to the server console. Wire it to an email provider (e.g., Resend) when ready.
-- Office addresses, phone numbers, and legal links are placeholders — update them in `src/components/layout/footer.tsx` and `src/app/contact/page.tsx`.
+- The contact form sends emails via SMTP using the environment variables in `.env.example`. Copy it to `.env.local` and fill in your SMTP credentials.
+- If SMTP credentials are not provided, submissions are logged to the server console for testing.
 
 ## License
 
-Private — © 2024 EstateIQ Global.
+Private — © 2024 Florens Consulting Services Private Limited. EstateIQ Global is a brand of Florens Consulting Services Private Limited.

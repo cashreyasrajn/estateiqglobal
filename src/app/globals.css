@@ -118,7 +118,7 @@
   --spacing-stack-sm: 1rem;
   --spacing-stack-md: 2rem;
   --spacing-stack-lg: 4rem;
-  --spacing-stack-xl: 8rem;
+  --spacing-stack-xl: 5rem;
 
   /* ── Border radius — sharp ── */
   --radius-sm: 0px;
@@ -184,8 +184,8 @@ body {
 
 @media (max-width: 1023px) {
   .section-padding {
-    padding-top: var(--spacing-stack-lg);
-    padding-bottom: var(--spacing-stack-lg);
+    padding-top: var(--spacing-stack-md);
+    padding-bottom: var(--spacing-stack-md);
   }
 }
 

@@ -53,12 +53,12 @@ export function Nav() {
 
         {/* CTA */}
         <div className="hidden md:block">
-          <Button asChild>
-            <Link href="/contact">Free Consultation</Link>
-          </Button>
-        </div>
+              <Button asChild>
+                <Link href="/contact">Consultation</Link>
+              </Button>
+            </div>
 
-        {/* Mobile menu toggle */}
+            {/* Mobile menu toggle */}
         <button
           type="button"
           className="inline-flex size-11 items-center justify-center md:hidden"
@@ -97,7 +97,7 @@ export function Nav() {
             </ul>
             <Button asChild className="w-full">
               <Link href="/contact" onClick={() => setMobileOpen(false)}>
-                Free Consultation
+                Consultation
               </Link>
             </Button>
           </div>
