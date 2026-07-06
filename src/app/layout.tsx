@@ -23,6 +23,15 @@ export const metadata: Metadata = {
   title: "EstateIQ Global | Cross-Border Estate Planning",
   description:
     "Precision estate tax planning for Indian residents with overseas assets. US federal tax savings, DTAA optimization, trust structures, and succession planning.",
+  icons: {
+    icon: [
+      { url: "/favicon/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+    ],
+    apple: "/favicon/apple-touch-icon.png",
+    shortcut: "/favicon/favicon.ico",
+  },
+  manifest: "/favicon/site.webmanifest",
   openGraph: {
     title: "EstateIQ Global | Cross-Border Estate Planning",
     description:
