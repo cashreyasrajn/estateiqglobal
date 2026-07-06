@@ -37,8 +37,8 @@ npm run build
 
 ## Notes
 
-- The contact form sends emails via SMTP using the environment variables in `.env.example`. Copy it to `.env.local` and fill in your SMTP credentials.
-- If SMTP credentials are not provided, submissions are logged to the server console for testing.
+- The contact form sends emails via [Resend](https://resend.com) using the environment variables in `.env.example`. Copy it to `.env.local` and add your `RESEND_API_KEY`.
+- For testing, you can use `RESEND_FROM_EMAIL=onboarding@resend.dev` (sends only to your Resend account email). For production, verify your domain and use a branded sender address.
 
 ## License
 

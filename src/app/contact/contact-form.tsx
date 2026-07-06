@@ -59,7 +59,7 @@ export function ContactForm() {
           id="phone"
           name="phone"
           type="tel"
-          placeholder="+91 98765 43210"
+          placeholder="+91 9xxxx xxxxx"
         />
       </div>
 

@@ -1,7 +1,7 @@
 "use server";
 
 import { z } from "zod";
-import nodemailer from "nodemailer";
+import { Resend } from "resend";
 
 const contactSchema = z.object({
   name: z.string().min(1, "Name is required"),
@@ -33,71 +33,52 @@ export async function submitContact(
   }
 
   const { name, email, phone, message } = parsed.data;
+
+  const apiKey = process.env.RESEND_API_KEY;
+  const fromEmail = process.env.RESEND_FROM_EMAIL || "onboarding@resend.dev";
   const toEmail = process.env.CONTACT_EMAIL || "Business@florensservices.com";
 
-  // Build the email body
-  const emailBody = [
-    "New contact form submission from Florens Consulting website",
-    "",
-    `Name: ${name}`,
-    `Email: ${email}`,
-    `Phone: ${phone || "Not provided"}`,
-    "",
-    "Message:",
-    message,
-  ].join("\n");
-
-  const htmlBody = `
-    <h2>New contact form submission</h2>
-    <p><strong>Name:</strong> ${escapeHtml(name)}</p>
-    <p><strong>Email:</strong> ${escapeHtml(email)}</p>
-    <p><strong>Phone:</strong> ${escapeHtml(phone || "Not provided")}</p>
-    <p><strong>Message:</strong></p>
-    <p>${escapeHtml(message).replace(/\n/g, "<br/>")}</p>
-  `;
-
-  const smtpHost = process.env.SMTP_HOST;
-  const smtpPort = process.env.SMTP_PORT ? Number(process.env.SMTP_PORT) : undefined;
-  const smtpUser = process.env.SMTP_USER;
-  const smtpPass = process.env.SMTP_PASS;
-
-  if (smtpHost && smtpUser && smtpPass) {
-    try {
-      const transporter = nodemailer.createTransport({
-        host: smtpHost,
-        port: smtpPort,
-        secure: smtpPort === 465,
-        auth: {
-          user: smtpUser,
-          pass: smtpPass,
-        },
-      });
-
-      await transporter.sendMail({
-        from: `"EstateIQ Global Website" <${smtpUser}>`,
-        to: toEmail,
-        replyTo: email,
-        subject: `New contact form submission from ${name}`,
-        text: emailBody,
-        html: htmlBody,
-      });
-    } catch (error) {
-      // eslint-disable-next-line no-console
-      console.error("Failed to send contact email:", error);
-      return {
-        ok: false,
-        errors: {
-          root: [
-            "Sorry, we couldn't send your message right now. Please email us directly at Business@florensservices.com.",
-          ],
-        },
-      };
-    }
-  } else {
-    // Log when SMTP is not configured so the form can still be tested.
+  if (!apiKey) {
     // eslint-disable-next-line no-console
-    console.log("Contact form submission (SMTP not configured):", parsed.data);
-    console.log("Email that would be sent:", emailBody);
+    console.log("Contact form submission (Resend API key not configured):", parsed.data);
+    return {
+      ok: false,
+      errors: {
+        root: [
+          "Email sending is not configured yet. Please add RESEND_API_KEY to your environment variables.",
+        ],
+      },
+    };
+  }
+
+  try {
+    const resend = new Resend(apiKey);
+
+    await resend.emails.send({
+      from: fromEmail,
+      to: toEmail,
+      replyTo: email,
+      subject: `New contact form submission from ${name}`,
+      html: `
+        <h2>New contact form submission</h2>
+        <p><strong>Name:</strong> ${escapeHtml(name)}</p>
+        <p><strong>Email:</strong> ${escapeHtml(email)}</p>
+        <p><strong>Phone:</strong> ${escapeHtml(phone || "Not provided")}</p>
+        <p><strong>Message:</strong></p>
+        <p>${escapeHtml(message).replace(/\n/g, "<br/>")}</p>
+      `,
+    });
+  } catch (error) {
+    // eslint-disable-next-line no-console
+    console.error("Failed to send contact email via Resend:", error);
+    return {
+      ok: false,
+      errors: {
+        root: [
+          "Sorry, we couldn't send your message right now. Please email us directly at Business@florensservices.com.",
+        ],
+      },
+    };
   }
 
   return {
