@@ -5,9 +5,9 @@ import { Resend } from "resend";
 
 const contactSchema = z.object({
   name: z.string().min(1, "Name is required"),
-  email: z.string().email("Please enter a valid email address"),
+  email: z.email("Please enter a valid email address"),
   phone: z.string().optional(),
-  message: z.string().min(10, "Message must be at least 10 characters"),
+  message: z.string().min(5, "Message must be at least 5 characters"),
 });
 
 export type ContactFormState =
@@ -54,7 +54,7 @@ export async function submitContact(
   try {
     const resend = new Resend(apiKey);
 
-    await resend.emails.send({
+    const { error } = await resend.emails.send({
       from: fromEmail,
       to: toEmail,
       replyTo: email,
@@ -68,6 +68,20 @@ export async function submitContact(
         <p>${escapeHtml(message).replace(/\n/g, "<br/>")}</p>
       `,
     });
+
+    if (error) {
+      // eslint-disable-next-line no-console
+      console.error("Resend API error:", error);
+      return {
+        ok: false,
+        errors: {
+          root: [
+            error.message ||
+              "Sorry, we couldn't send your message right now. Please email us directly at Business@florensservices.com.",
+          ],
+        },
+      };
+    }
   } catch (error) {
     // eslint-disable-next-line no-console
     console.error("Failed to send contact email via Resend:", error);
