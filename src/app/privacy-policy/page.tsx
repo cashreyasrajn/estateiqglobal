@@ -68,7 +68,7 @@ export default function PrivacyPolicyPage() {
             </p>
 
             <p className="pt-4 font-sans text-caption text-on-surface-variant">
-              Effective date: July 2024
+              Effective date: July 2026
             </p>
           </div>
         </FadeIn>

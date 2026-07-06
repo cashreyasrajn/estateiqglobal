@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Mail, MapPin } from "lucide-react";
+import { Mail, MapPin, Phone } from "lucide-react";
 import { ContactForm } from "./contact-form";
 import { FadeIn } from "@/components/motion/fade-in";
 
@@ -51,6 +51,23 @@ export default function ContactPage() {
                       <p className="font-sans text-label-lg text-on-surface">
                         Bangalore, India
                       </p>
+                    </div>
+                  </div>
+
+                  <div className="border-t border-outline-variant pt-6">
+                    <div className="flex items-center gap-4">
+                      <Phone className="size-5 shrink-0 stroke-1 text-primary" />
+                      <div>
+                        <p className="font-sans text-label-lg text-on-surface">
+                          Phone
+                        </p>
+                        <a
+                          href="tel:+917338292383"
+                          className="mt-1 block font-sans text-body-sm text-on-surface-variant hover:text-primary"
+                        >
+                          +91 733 829 2383
+                        </a>
+                      </div>
                     </div>
                   </div>
 

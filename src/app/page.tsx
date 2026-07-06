@@ -3,12 +3,9 @@ import Image from "next/image";
 import {
   ArrowRight,
   ChevronDown,
-  Building2,
   Globe,
   Scale,
-  Briefcase,
   Users,
-  ShieldCheck,
   Mail,
   MapPin,
   Phone,
@@ -28,12 +25,6 @@ const valueBadges = [
 ];
 
 const strengths = [
-  {
-    icon: Building2,
-    title: "Institutional Pedigree",
-    description:
-      "Our team has advised on estate structures at leading accounting firms and understands the discipline of institutional practice.",
-  },
   {
     icon: Globe,
     title: "Cross-Border Depth",
@@ -81,8 +72,37 @@ export default function HomePage() {
   return (
     <>
       {/* ── Hero ── */}
-      <section className="relative flex min-h-[85vh] flex-col justify-center section-padding">
-        <div className="container-site">
+      <section className="relative flex min-h-[85vh] flex-col justify-center overflow-hidden section-padding">
+        {/* Dot grid pattern */}
+        <div
+          className="absolute inset-0 bg-[radial-gradient(circle,#e2e2e2_1px,transparent_1px)] bg-[length:28px_28px] opacity-60"
+          aria-hidden="true"
+        />
+        {/* Soft radial depth */}
+        <div
+          className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(0,0,0,0.03)_0%,transparent_50%)]"
+          aria-hidden="true"
+        />
+        <div
+          className="absolute inset-0 bg-[radial-gradient(circle_at_70%_70%,rgba(0,0,0,0.03)_0%,transparent_50%)]"
+          aria-hidden="true"
+        />
+
+        {/* Watermark */}
+        <span
+          className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 select-none font-serif text-[10rem] font-bold leading-none text-surface-container-highest/40 md:right-8 md:text-[14rem] lg:text-[18rem]"
+          aria-hidden="true"
+        >
+          IQ
+        </span>
+
+        {/* Decorative vertical line */}
+        <div
+          className="absolute left-4 top-0 hidden h-full w-px bg-outline-variant/40 md:left-8 lg:left-20 xl:block"
+          aria-hidden="true"
+        />
+
+        <div className="container-site relative z-10">
           <FadeIn>
             <h1 className="max-w-4xl font-serif text-display-lg text-on-surface md:text-[5rem]">
               Estate. <span className="italic">Tax.</span> Structure.
@@ -298,9 +318,12 @@ export default function HomePage() {
               <div className="grid gap-stack-md sm:grid-cols-2">
                 <div>
                   <h4 className="mb-2 font-sans text-label-lg text-on-primary">PHONE</h4>
-                  <p className="font-sans text-body-md text-on-primary-container">
-                    +91 — Available on request
-                  </p>
+                  <a
+                    href="tel:+917338292383"
+                    className="font-sans text-body-md text-on-primary-container underline underline-offset-4 transition-opacity hover:opacity-80"
+                  >
+                    +91 733 829 2383
+                  </a>
                 </div>
                 <div>
                   <h4 className="mb-2 font-sans text-label-lg text-on-primary">ADDRESS</h4>

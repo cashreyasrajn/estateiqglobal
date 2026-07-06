@@ -19,6 +19,7 @@ const workSans = Work_Sans({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://estateiqglobal.com"),
   title: "EstateIQ Global | Cross-Border Estate Planning",
   description:
     "Precision estate tax planning for Indian residents with overseas assets. US federal tax savings, DTAA optimization, trust structures, and succession planning.",
@@ -28,13 +29,22 @@ export const metadata: Metadata = {
       "Precision estate tax planning for Indian residents with overseas assets.",
     type: "website",
     locale: "en_IN",
-    url: "https://estateiqglobal.com",
+    url: "/",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "EstateIQ Global — Cross-border estate tax planning",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "EstateIQ Global | Cross-Border Estate Planning",
     description:
       "Precision estate tax planning for Indian residents with overseas assets.",
+    images: ["/og-image.png"],
   },
 };
 

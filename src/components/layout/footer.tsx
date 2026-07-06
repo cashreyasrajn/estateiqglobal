@@ -7,7 +7,7 @@ import { NewsletterForm } from "./newsletter-form";
 export function Footer() {
   return (
     <footer className="w-full border-t border-outline-variant bg-surface-container">
-      <div className="container-site grid grid-cols-1 gap-stack-md py-stack-lg md:grid-cols-4">
+      <div className="container-site grid grid-cols-1 gap-stack-md py-stack-lg md:grid-cols-5">
         {/* Brand */}
         <div className="md:col-span-1">
           <div className="mb-stack-sm font-serif text-headline-md font-bold text-primary">
@@ -28,6 +28,25 @@ export function Footer() {
           <address className="not-italic font-sans text-caption text-on-surface-variant">
             <p>Bangalore, India</p>
           </address>
+        </div>
+
+        {/* Contact */}
+        <div>
+          <h5 className="mb-4 font-sans text-label-lg text-primary">CONTACT</h5>
+          <div className="flex flex-col gap-2">
+            <a
+              href="tel:+917338292383"
+              className="font-sans text-caption text-on-surface-variant transition-colors hover:text-primary"
+            >
+              +91 733 829 2383
+            </a>
+            <a
+              href="mailto:Business@florensservices.com"
+              className="font-sans text-caption text-on-surface-variant transition-colors hover:text-primary"
+            >
+              Business@florensservices.com
+            </a>
+          </div>
         </div>
 
         {/* Legal */}
@@ -60,7 +79,7 @@ export function Footer() {
           <h5 className="mb-4 font-sans text-label-lg text-primary">NEWSLETTER</h5>
           <NewsletterForm />
           <p className="mt-stack-md font-sans text-caption text-on-surface-variant">
-            &copy; 2024 Florens Consulting Services Private Limited. All rights reserved.
+            &copy; 2026 Florens Consulting Services Private Limited. All rights reserved.
           </p>
         </div>
       </div>
