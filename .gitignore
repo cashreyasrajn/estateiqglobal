@@ -41,11 +41,9 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# project planning artifacts
+# leftover / local artifacts
+website/
+scripts/
 .omo/
 .codegraph
 *.zip
-
-# QA / evidence
-.omo/evidence/
-scripts/
